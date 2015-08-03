@@ -1,0 +1,369 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# How to use
+# Compass
+# Things set by underscores.
+# The little things...
+# Page
+# Dynamic Column
+# Grid
+## Wrap
+## Column set up
+## Column helper classes
+# Text
+# Unstyled Lists
+# Mobile Columns
+
+
+/*--------------------------------------------------------------
+# How to use
+--------------------------------------------------------------*/
+//Take this file (sea-salt-grid.scss) and copy it into your underscores sass folder. Then open style.scss in your underscores and import this file.
+//@import 'sea-salt-grid';
+
+
+
+/*--------------------------------------------------------------
+#  Compass
+--------------------------------------------------------------*/
+//if you don't want compass, comment this line out: 
+@import 'compass/css3';
+
+
+
+/*--------------------------------------------------------------
+# Things already set by underscores. If your not using underscores, uncomment them.
+--------------------------------------------------------------*/
+
+//@import 'normalize'; 
+//@import 'elements';
+//@import 'clearings';
+
+
+/*--------------------------------------------------------------
+# variables you may override. Don;t override here! Do it in another file like structure.scss
+--------------------------------------------------------------*/
+$wrap: 1200px !default;
+$gutters: 15px !default;
+$footersize: 25px !default;
+$dynamic-column: 600px !default;
+$mobile-width: 500px !default;
+$baseline: 1.5rem !default;
+
+
+
+/*--------------------------------------------------------------
+# The little Things
+--------------------------------------------------------------*/
+
+//choose to hude scroll bars on an overflowed div?
+body *{
+ -ms-overflow-style: none;
+}
+
+body *::-webkit-scrollbar {
+    //display: none;
+}
+
+
+//ios tap highlight. Set to no color.
+html *{
+	 -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+/*--------------------------------------------------------------
+# sticky footer
+--------------------------------------------------------------*/
+
+//holds the footer at bottom of page when the page isnt very long in height
+//for this to work footer must have a set height.
+//everything inside #page until footer will have a min-height of 100vh - footer
+//in underscores everything inside #page is inside .site-content or .site-footer
+
+
+
+body .site-content{
+  min-height:  calc("100vh - #{$footersize}");
+  padding-bottom: 0;
+}
+body .site-footer{
+  margin-top: 0;
+  height: $footersize;
+  overflow: hidden;
+}
+
+//remember in wp when admin is signed and can see admin bar, its a bit off at the top... by 32px
+.admin-bar .site-content{
+	min-height:  calc("100vh - #{$footersize} - 32px");
+}
+
+
+
+@media screen and (max-width: 782px){
+.admin-bar .site-content{
+	min-height:  calc("100vh - #{$footersize} - 46px");
+	}
+}
+
+/*--------------------------------------------------------------
+# page: holds everything inside body. Perfect for dynamic columns
+--------------------------------------------------------------*/
+#page{
+	overflow: hidden;
+	position: relative;
+}
+
+
+/*--------------------------------------------------------------
+# Dynamic Column for posts of text. with some break out areas
+--------------------------------------------------------------*/
+
+//based on http://modusagency.com/css-trick-expanding-a-div-beyond-a-parent-container/
+//inside dynamic column, if you use .full-area or .break-out it will go full width. 
+//break-out will only have the background go full width, while full-area will go a real full width.
+
+
+.dynamic-column{
+		max-width: $dynamic-column; 
+		margin: auto;
+		margin-bottom: $baseline;
+		@extend .gutters;
+	
+	//anything you want to go full
+		pre, .code, .break-out, .full-area{
+			width: 500%;
+			margin-left: -200%; //now 100% is centered;
+			max-width: 500%;
+			padding: 1.5rem 0;
+
+			
+			>*{
+				margin: auto;
+				max-width: $dynamic-column;
+				display: block;
+				padding: 0 15px;
+			 }
+			}
+			
+		.full-area>*{
+			max-width: 100vw;
+		}
+}
+
+
+
+
+/*--------------------------------------------------------------
+# The Grid
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+## Wrap
+--------------------------------------------------------------*/
+
+//cols can go inside a wrap. But wraps cannot go inside cols.... well they can but it can mess up the grid.
+.wrap{
+  width:100%;
+  max-width: $wrap; 
+  margin:auto;
+  clear:both;
+  
+  @extend .clear !optional;
+}
+
+
+/*--------------------------------------------------------------
+## Column set up
+--------------------------------------------------------------*/
+
+main{
+	@extend .clear !optional;
+}
+
+
+
+//all classes that have col- in them get floated and get gutters and a margin bottom.
+[class*="col-"] {
+  float: left;
+  @extend %gutters;
+  @extend .m1;
+  @extend .clear !optional;
+}
+
+
+.col-1-2 { width: 50%; }
+.col-1-3 { width: 33.3333%; }
+.col-2-3 { width: 66.6666%; }
+.col-1-4 { width: 25%; }
+.col-3-4 { width: 75%; }
+.col-1-5 { width: 20%; }
+.col-2-5 { width: 40%; }
+.col-3-5 { width: 60%; }
+.col-4-5 { width: 80%; }
+.col-1-6 { width: 16.6666%; }
+.col-5-6 { width: 83.3333%; }
+.col-full{ width: 100%;  float: none; clear: both;}
+
+
+/*--------------------------------------------------------------
+## Column helper classes
+--------------------------------------------------------------*/
+
+
+.m0{
+	margin-bottom: 0;
+}
+
+.m1{
+	margin-bottom: $baseline;
+}
+
+%gutters, 
+.gutters, 
+.module{ 
+  padding: 0 15px; 
+}
+
+.double-gutters{
+  padding: 0 30px;
+}
+
+.full-double-gutters{
+  padding: 30px; 
+}
+
+.full-gutters{ 
+  padding: 15px;
+}
+
+body .hasinnercols, 
+body .nogutters{ 
+  padding: 0;
+}
+
+body .hasinnercols{
+ margin-bottom: 0; 
+}
+
+
+.right-col{
+	float: right;
+}
+
+
+.alignnone{
+	margin: auto;
+}
+
+
+
+/*--------------------------------------------------------------
+# Text
+--------------------------------------------------------------*/
+.center-text{
+	text-align: center;
+}
+
+.right-text{
+	text-align: right;
+}
+
+
+a{
+	outline: none;
+}
+
+
+/*--------------------------------------------------------------
+# Unstyled Lists
+--------------------------------------------------------------*/
+
+//use this class on menus or any list you dont want to have defualt styles and bullets.
+ul.no-list{
+	margin: 0;
+	list-style: none;
+	padding: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Helper Classes
+--------------------------------------------------------------*/
+
+.hide{
+	display: none;
+}
+
+
+.transitions {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; 
+  }
+ 
+ 
+ @mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+
+
+@mixin deep-shadow($size, $color){
+	
+	//add layers of text shadow to $text-shadow
+	$text-shadow: '1px 1px #{$color}';
+	$comma: ',';
+	@for $i from 2 through $size {
+		$text-shadow: #{$text-shadow} #{$comma} #{$i}px #{$i}px 0 $color; 
+
+}
+text-shadow: $text-shadow;
+	
+}
+
+
+/*--------------------------------------------------------------
+# // !mobile columns
+--------------------------------------------------------------*/
+@media only screen 
+and (max-width : $mobile-width) {
+
+//here is where columns go full size unless they have class .stay-on-mobile. Dynamic columns with break outs only go to full width of viewport.
+   
+   [class*="col-"]:not(.stay-on-mobile){
+	   width: 100%;
+   }
+   
+   .dynamic-column{
+	 	pre, .code, .full-area{
+		 	
+		 	>*{
+			 	max-width: 100vw;
+			 
+		 	}
+		 	}
+ 	}
+   
+}
+
+
+/*--------------------------------------------------------------
+# // big screen
+--------------------------------------------------------------*/
+@media only screen 
+and (min-width : $mobile-width) {
+/* Styles */
+   
+ 	
+
+   
+}
