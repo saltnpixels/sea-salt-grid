@@ -819,6 +819,7 @@ input[type="checkbox"]:checked + .break-out label h3:after {
 
 input[type="checkbox"]:checked + .break-out {
   max-height: 900px;
+  overflow: scroll;
   -webkit-transition: max-height 1.2s linear;
   transition: max-height 1.2s linear; }
 
