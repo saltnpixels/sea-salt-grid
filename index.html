@@ -2,21 +2,407 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>Not using underscores? use this.</title>
+	<title>Sea Salt Grid</title>
+	<link href='https://fonts.googleapis.com/css?family=Dosis:400,500,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="js/seasaltgrid.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	<script src="https://dl.dropboxusercontent.com/u/1090829/cdn/animation.gsap.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
 </head>
 <body>
+	 
 	<div id="page">
 		
-		<div id="content" class="site-content">
+		<div class="site-content">
+    <input type="checkbox" class="hide" name="menu-toggle" id="menu-toggle" />
+			<label for="menu-toggle" class="menu-toggle"><i class="fa fa-bars"></i></label>
+			<header class="clear">
+				<div class="col-2-3 hero-area m0">
+					<div class="blurred"></div>
+					<h1><a href="#">Sea Salt Grid</a></h1>
+									</div>
+				
+				
+				<div class="col-1-3 has-inner-cols call-to-action m0">
+				   <a class="button" href="#">View on Github</a>
+					 <a class="button" href="#">Download</a>
 					
-		</div> <!-- end content -->
+					
+				</div>
+				
+			</header>
+			<div class="menu-holder">
+			<div class="site-description col-full center-text m0">
+				<h2>A simple responsive scss grid that saves you time and energy while keeping you in full control</h2>
+				
+				<div class="menu">
+						<ul>
+							<li>
+								<a href="#gist">The Gist</a>
+							</li>
+							<li>
+								<a href="#variables">Variables</a>
+							</li>
+							<li>
+								<a href="#columns">Columns</a>
+							</li>
+							<li>
+								<a href="#structure">Structure</a>
+							</li>
+							<li>
+								<a href="#break-out">Break Outs</a>
+							</li>
+							<li>
+								<a href="#helpers">Helpers</a>
+							</li>
+						</ul>
+					 </div>
+
+				
+			</div>
+			</div>
+			<main>
+				<div class="wrap">
+					
+					<section class="gist" id="gist">
+						<div class="col-1-4 teal-gradient"><h2>The Gist</h2></div>
+						<div class="col-3-4">
+							<p>By importing a simple snippet of code you will gaining access to a simple grid and some helpful classes of awesomeness!</p>
+							<p>The grid is simple and easy to use and wont have you bashing your head against the wall! Click 'How to import' to see how simple it is.</p>
+							<figure>
+							<figcaption> @import sea-salt-grid.scss</figcaption>
+							<img src="images/sass-icon.png" srcset="images/sass-icon@2x.png 2x" alt="sass-icon" width="132" height="148">
+							</figure>
+						</div>
+					</section>
+					
+					<input type="checkbox" name="gist" id="gists" class="hide" />
+					<div class="break-out">
+						<div>
+							
+							<label for="gists"><h3>How to import:</h3></label>
+							
+						<div class="code"><br />
+<em><span style="color:#838c95;">//copy the sea-salt-grid.scss file to your sass directory.<br />
+//import the file<br />
+</span><span style="color:#f82939;">@import</span></em> <span style="color:#fcc146;">&quot;sea-salt-grid&quot;</span>;<br />
+<br />
+<em><span style="color:#838c95;">//sea salt grid was created with underscores, a wordpress starting theme, in mind.<br />
+//if you are not using underscores, you will need to load extra classes and normalize.css<br />
+//this is done by including this:<br />
+</span><span style="color:#f82939;">@include</span></em> no-underscores;</div>
+												
+						</div>
+					</div>  
+<!-- 					end break out -->
+
+
+
+	<section class="variables" id="variables">
+						<div class="col-1-4 right-col purple-gradient"><h2>The Variables</h2></div>
+						<div class="col-3-4">
+							<p>Sea Salt Grid comes with a few variables that you can change easily.</p>
+							<p>Make sure you change the variables you want before importing the sea salt grid file.</p>
+							<p>These variables will be explained further on this page.</p>
+						</div>
+					</section>
+					
+					<input type="checkbox" name="variables" id="variable" class="hide" />
+					<div class="break-out">
+						<div>
+							
+							<label for="variable"><h3>Changing Variables:</h3></label>
+							<div class="code">
+								<br /><em><span style="color:#838c95;">//you can change any of these variables<br />
+</span></em><span style="color:#60d0af;">$wrap</span>: <span style="color:#6f4ebc;">1200px</span>; &nbsp;<em><span style="color:#838c95;">//controls the max-width of the website when its inside class wrap. It's also centered. <br />All these sections on this site are inside one giant class of .wrap<br /> <br />
+</span></em><span style="color:#60d0af;">$gutters</span>: <span style="color:#6f4ebc;">15px</span>; &nbsp;<em><span style="color:#838c95;">//controls the gutters (padding) on columns.<br /> <br />
+</span></em><span style="color:#60d0af;">$footer-height</span>: <span style="color:#6f4ebc;">25px</span>; <em><span style="color:#838c95;">//controls the fixed height of your footer. important if you care about sticky footers.<br /> <br />
+</span></em><span style="color:#60d0af;">$content-column</span>: <span style="color:#6f4ebc;">600px</span>; &nbsp;<em><span style="color:#838c95;">//max-width of a centered column great for main text of a post. This and wrap have special break-out abilities explained further on.<br /> <br />
+</span></em><span style="color:#60d0af;">$mobile-width</span>: <span style="color:#6f4ebc;">500px</span>; &nbsp;<em><span style="color:#838c95;">//controls the only media query included and when that mobile break point occurs, all columns go 100% width.<br /> <br />
+</span></em><span style="color:#60d0af;">$baseline</span>: <span style="color:#6f4ebc;">1</span>.<span style="color:#6f4ebc;">5rem</span>; &nbsp;<em><span style="color:#838c95;">//the margin bottom used on columns and other elements<br />
+</span></em><br />
+<br />
+<em><span style="color:#f82939;">@import</span></em> <span style="color:#fcc146;">&quot;sea-salt-grid&quot;</span>;<br />
+</div>
+						 
+												
+						</div>
+					</div>  
+<!-- 					end break out -->
+					
 		
-		<footer class="site-footer" role="contentinfo">
+		<section class="columns" id="columns">
+						<div class="col-1-4 red-gradient"><h2>The Columns</h2></div>
+						<div class="col-3-4">
+							<p>All Columns have 15 pixels of padding on both sides. When two columns come together, they make a 30 pixel gutter. A column uses classes that don’t require too much thinking! col-1-2 is a column half the size of its container.</p>
+							<br />
+							<div class="col-1-3">
+								<div class="box">.col-1-3</div>
+							</div>
+							<div class="col-1-3">
+								<div class="box">.col-1-3</div>
+							</div>
+							<div class="col-1-3">
+								<div class="box">.col-1-3</div>
+							</div>
+						</div>
+					</section>
+					
+					<input type="checkbox" name="columns" id="column" class="hide" />
+					<div class="break-out">
+						<div>
+							
+							<label for="column"><h3>Examples of Columns:</h3></label>
+						
+							<div class="code"><br />
+<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-3 box&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;p&gt;</span>hello. I am one third of the layout. I am perfectly centered.<span style="color:#f82939;">&lt;/p&gt;</span><br />
+<span style="color:#f82939;">&lt;/div&gt;</span><br />
+<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-3 box&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;p&gt;</span>hello. I am one third of the layout. I am perfectly centered.<span style="color:#f82939;">&lt;/p&gt;</span><br />
+<span style="color:#f82939;">&lt;/div&gt;</span><br />
+<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-3 box&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;p&gt;</span>hello. I am one third of the layout. I am perfectly centered.<span style="color:#f82939;">&lt;/p&gt;</span><br />
+<span style="color:#f82939;">&lt;/div&gt;</span><br />
+<br />
+<em><span style="color:#838c95;">&lt;!-- &nbsp;using nested columns. put .has-inner-cols on outter column &nbsp;--&gt;</span></em><br />
+<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-2 has-inner-cols&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-3&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f82939;">&lt;p </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;box&quot;</span><span style="color:#f82939;">&gt;</span>I am one third inside one half<span style="color:#f82939;">&lt;/p&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;/div&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-3&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f82939;">&lt;p </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;box&quot;</span><span style="color:#f82939;">&gt;</span>I am one third inside one half<span style="color:#f82939;">&lt;/p&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;/div&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-3&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f82939;">&lt;p </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;box&quot;</span><span style="color:#f82939;">&gt;</span>I am one third inside one half<span style="color:#f82939;">&lt;/p&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;/div&gt;</span><br />
+<span style="color:#f82939;">&lt;/div&gt;</span><br /><br />
+<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;col-1-2&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;p </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;box&quot;</span><span style="color:#f82939;">&gt;</span>I am the last half<span style="color:#f82939;">&lt;/p&gt;</span><br />
+<span style="color:#f82939;">&lt;/div&gt;</span><br />
+<br />
+
+<div class="col-1-3 box">
+	<p>hello. I am one third of the layout. I am perfectly centered.</p>
+</div>
+<div class="col-1-3 box">
+	<p>hello. I am one third of the layout. I am perfectly centered.</p>
+</div>
+<div class="col-1-3 box">
+	<p>hello. I am one third of the layout. I am perfectly centered.</p>
+</div>
+
+
+<!-- 	using nested columns. put .has-inner-cols on outter column  -->
+<div class="col-1-2 has-inner-cols">
+	<div class="col-1-3">
+		<p class="box">I am one third inside one half</p>
+	</div>
+	<div class="col-1-3 ">
+		<p class="box">I am one third inside one half</p>
+	</div>
+	<div class="col-1-3">
+		<p class="box">I am one third inside one half</p>
+	</div>
+</div>
+<div class="col-1-2">
+	<p class="box">I am the last half</p>
+</div>
+
+<em><span style="color:#838c95;">&lt;!-- Notice how I put .box directly on the columns in the first set. The padding is inside the box now. Be aware! --&gt;</span></em><br />
+
+
+</div>	
+<!-- 						end .code -->
+						</div>
+					</div>  
+<!-- 					end break out columns -->
+					
+					<section class="structure" id="structure">
+						<div class="col-1-4 right-col yellow-gradient"><h2>html5 structure</h2></div>
+						<div class="col-3-4">
+							<p>The structure is very flexible. Only three classes are mandatory to add to your code.</p>
+							<p><strong>#page</strong> - holds everything inside body. Important for break outs.</p>
+							<p>
+								<strong>.site-content</strong> - right inside #page. Holds everything except footer
+							</p> 
+							<p>
+								<strong>.site-footer</strong> - Also right inside #page, under .site-content. Holds footer.
+							</p> 
+							<p>This structure gives you the ability to have break outs and have a sticky footer.</p>
+						</div>
+					</section>
+					
+					<input type="checkbox" name="structure" id="structures" class="hide" />
+					<div class="break-out">
+						<div>
+							<label for="structures"><h3>Your starting structure</h3></label>
+							
+							<div class="code"> <br /><span style="color:#ffffff;">&lt;!doctype html&gt;</span><br />
+<span style="color:#f82939;">&lt;html </span><span style="color:#3beb2a;">lang</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;en&quot;</span><span style="color:#f82939;">&gt;</span><br />
+<span style="color:#f82939;">&lt;head&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;meta </span><span style="color:#3beb2a;">charset</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;UTF-8&quot;</span><span style="color:#f82939;"> /&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;title&gt;</span>title<span style="color:#f82939;">&lt;/title&gt;</span><br />
+<span style="color:#f82939;">&lt;/head&gt;</span><br />
+<span style="color:#f82939;">&lt;body&gt;</span><br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">id</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;page&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;site-content&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;anything here... usually a .site-header  then a main maybe with class .wrap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f82939;">&lt;/div&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;site-footer&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;anything here...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f82939;">&lt;/div&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;<span style="color:#f82939;">&lt;/div&gt;</span> <br />
+<em><span style="color:#838c95;">&lt;!-- &nbsp;&nbsp;end #page --&gt;</span></em><br />
+<span style="color:#f82939;">&lt;/body&gt;</span><br />
+<span style="color:#f82939;">&lt;/html&gt;</span>
+		
+ </div>
+
+<p>
+								<strong>Note:</strong>
+								If you are using underscores and want the sticky footer to work right, open header.php and take the last line, which is the .site-content div, and move it up to right on top of the header. You are all set!
+							</p>
+				
+  						
+						</div>
+					</div>
+<!-- 					end break out -->
+		
+			<section class="break-outs" id="break-out">
+						<div class="col-1-4 green-gradient"><h2>Break outs</h2></div>
+						<div class="col-3-4">
+							<p>So you have decided to write a post and suddenly you want to have a full width section. But your stuck inside wrap or a small centered section.</p>
+							<p>Its messy and not great to have to close the wrap or even the article to create a full width section, just to reopen the article and continue.</p>
+							<img class="right-col col-1-2" src="images/break-outs.png" srcset="images/break-outs@2x.png 2x" alt="break-outs" width="788" height="522">
+							<p>Have no fear! Break outs are here! With a class of .break-out you can have a full width background and continue having centered content within.</p>
+							<p>.Break-out-full will give you the full width even for your content.</p>
+						</div>
+					</section>
+					
+					<input type="checkbox" name="break-outs" id="break-outs" class="hide" />
+					<div class="break-out">
+						<div>
+							<label for="break-outs">
+								<h3>How to break out:</h3>
+							</label>
+							
+			<p>				
+//you are inside a break-out right now!! <br />
+//all the sections on this page are inside one large .wrap <br />
+//instead of closing the wrap I created this:
+			</p>
 			
-		</footer>
+<div class="code"><span style="color:#f82939;">&lt;div </span><span style="color:#3beb2a;">class</span><span style="color:#f82939;">=</span><span style="color:#fcc146;">&quot;break-out&quot;</span><span style="color:#f82939;">&gt;</span><br />
+&nbsp;<span style="color:#f82939;">&lt;div&gt;</span><br />
+&nbsp;&nbsp;It is important to put EVERYTHING inside an inner div in the break out.<br />
+&nbsp;&nbsp;Don't put anything outside this div or you wont see it!<br />
+&nbsp;&nbsp;For more information on how this works you can visit this post.<br />
+&nbsp;&nbsp;<a target="_blank" href="http://modusagency.com/css-trick-expanding-a-div-beyond-a-parent-container/">http://modusagency.com/css-trick-expanding-a-div-beyond-a-parent-container/</a><br />
+&nbsp;&nbsp;This is what it is based on.<br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;.break-out and .break-out-full currently work on .wrap and .content-column. Regular columns do not have this ability. I didn't think anyone was popping out of a col-1-3....<br />
+&nbsp;&nbsp;I use .content-column when creating an article usually as its smaller than wrap and meant for lines of text. <br />
+&nbsp;<span style="color:#f82939;">&lt;/div&gt;</span><br />
+<span style="color:#f82939;">&lt;/div&gt;</span></div>							
+						</div>
+					</div>
+
 		
-	</div> <!-- end #page -->		
+		<section class="helpers" id="helpers">
+						<div class="col-1-4 right-col teal-gradient"><h2>Helpful Classes</h2></div>
+						<div class="col-3-4">
+							<p>Some helpful classes and mixins are available to help you out.</p>
+							<p>For anything else, feel free to contact me on twitter</p>
+						</div>
+					</section>
+					
+					<input type="checkbox" name="helpers" id="helper" class="hide" />
+					<div class="break-out">
+						<div>
+							<label for="helper">
+								<h3>Helpful classes and mixins</h3>
+							</label>
+							
+							<div>
+								<p><h4>Classes:</h4></p>
+								<p>A lot of these classes can be put in the html or use @extend inside the sass to use them.</p>
+								<p><strong>.right-col:</strong> makes a column float right instead of left</p>
+								<p><strong>.m0:</strong> gives a margin bottom of 0 to things that normally would have a margin-bottom, like columns</p>
+								<p>
+									<strong>.transitions:</strong> gives basic transitions of all .5s 
+								</p>
+								<p>
+									<strong>.no-list:</strong> Use on a ul. Gets rid of list styles. Useful for menus
+								</p>
+								
+								<p>
+									<strong>.row:</strong> Can surround columns. Lets you start a new set of columns even if the last set didn't equal 100%.
+								</p>
+								
+								<p>
+									<strong>.hide, .hidden</strong> sets to display: none
+								</p>
+								
+								<p>
+									<strong>.center-text | .right-text:</strong> centers text. .right-text aligns to the right.
+								</p>
+								
+								<p>
+									<strong>.gutters:</strong> Gives 15px padding to right and left. This is already on columns.
+								</p>
+								<p>
+									<strong>.full-gutters:</strong> Gives gutters all around, not just to sides.
+								</p>
+								
+								<p>
+									<strong>.no-outer-gutters:</strong> Put on div surrounding columns, like a .row. This will get rid of outer gutters of first and last column, so the edges of the columns butt up against the viewport or whatever div they are in.
+								</p>
+								
+								<p>
+									<strong>.stay-on-mobile:</strong> This column wont go full width on mobile.
+								</p>
+								
+								<p>
+									<strong>.aligncenter | .alignnone:</strong> Centers and makes sure there is no float.
+								</p>
+							</div>
+							
+							
+						</div>
+
+		
+
+		
+					
+					
+				</div> <!-- end wrap -->
+				
+			</main>
+		
+		</div>
+		<div class="site-footer">
+			
+			<div class="content-column">	<div class="video-container">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/1wTnnzzOzXA" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<p>Watch the making of this site!</p>
+						</div>
+			<p class="center-text"> &copy; Created by Eric Greenfield - 2016</p>
+			<a target="_blank" href="https://twitter.com/SaltnPixels"><i class="fa fa-twitter"></i></a>
+		</div>
+		
+	</div>
 	
 </body>
 </html>
