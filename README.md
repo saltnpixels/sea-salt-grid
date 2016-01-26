@@ -7,4 +7,4 @@ Sea-salt-grid was created with underscores in mind.
 Underscores makes wordpress theming that much faster, and with Sea-salt-grid, it's super fast!
 This makes styling with underscores a breeze! It adds a basic grid layout that works beautifully with Underscores.
 
-You can Learn more [here](http://http://saltnpixels.github.io/sea-salt-grid/ "Sea-Salt-Grid")
+You can Learn more [here](http://saltnpixels.github.io/sea-salt-grid/ "Sea-Salt-Grid")
