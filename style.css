@@ -512,7 +512,7 @@ a {
 # // ! header
 --------------------------------------------------------------*/
 .hero-area {
-  background: url("/images/hero@2x.png");
+  background: url("images/hero@2x.png");
   background-size: cover;
   background-position: right center;
   height: 500px;
@@ -524,7 +524,7 @@ a {
     bottom: 0;
     top: 0;
     display: block;
-    background: url("/images/hero-blur@2x.jpg");
+    background: url("images/hero-blur@2x.jpg");
     background-size: cover;
     background-position: right center;
     z-index: 2;
